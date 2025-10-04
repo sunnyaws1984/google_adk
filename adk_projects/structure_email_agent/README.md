@@ -55,10 +55,21 @@ When using `output_schema`:
 
 ## Enter the below prompts to test in ADK UI:
 
-Marketing / Outreach Email Prompts -
+Marketing / Outreach Emails
 
+Try entering any of the following prompts in the ADK web UI:
+
+New Subscription Plans:
 Write a marketing email announcing our new subscription plans and their benefits.
+
+Product Webinar Invite:
 Draft an email inviting customers to join our upcoming product webinar.
+
+Early Bird Promotion:
 Create a promotional email offering a 20% discount for early bird sign-ups.
+
+Product Launch Announcement:
 Write an email introducing our latest product line and highlighting key features.
-Compose an email thanking customers for their loyalty and sharing an exclusive offe
+
+Customer Loyalty Thank You:
+Compose an email thanking customers for their loyalty and sharing an exclusive offer.
