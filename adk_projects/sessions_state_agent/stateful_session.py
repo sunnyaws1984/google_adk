@@ -1,65 +1,108 @@
 import uuid
-
+import asyncio
 from dotenv import load_dotenv
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
-from question_answer_agent import question_answering_agent
+from question_answer_agent import question_answer_agent
+from session_store import save_session, load_session
 
 load_dotenv()
 
+async def main():
+    # Initialize in-memory session service for stateful interactions
+    session_service_stateful = InMemorySessionService()
+    APP_NAME = "Aarav Bot"
+    USER_ID = "aarav_sharma"
 
-# Create a new session service to store state
-session_service_stateful = InMemorySessionService()
+    # Try to load an existing session from disk
+    existing_session = load_session()
 
-initial_state = {
-    "user_name": "Brandon Hancock",
-    "user_preferences": """
-        I like to play Pickleball, Disc Golf, and Tennis.
-        My favorite food is Mexican.
-        My favorite TV show is Game of Thrones.
-        Loves it when people like and subscribe to his YouTube channel.
-    """,
-}
+    if existing_session:
+        # Session exists locally; load it into memory so the Runner can use it
+        print("LOADED EXISTING SESSION:")
+        SESSION_ID = existing_session["session_id"]
+        print("Session ID:", SESSION_ID)
+        state = existing_session["state"]
+        
+        # Create/load session in memory with the previously saved state
+        await session_service_stateful.create_session(
+            app_name=APP_NAME,
+            user_id=USER_ID,
+            session_id=SESSION_ID,
+            state=state,
+        )
+    else:
+        # No existing session; create a new one with initial state
+        print("CREATED NEW SESSION:")
+        SESSION_ID = str(uuid.uuid4())
+        print("Session ID:", SESSION_ID)
+        state = {
+            "user_name": "Aarav Sharma",
+            "user_preferences": """
+                I love playing cricket, badminton, and football.
+                My favorite food is paneer butter masala with naan.
+                My favorite movie is 3 Idiots.
+                I enjoy exploring hill stations like Manali and Munnar.
+                I like chai more than coffee and enjoy reading about Indian history.
+                I love doing coding in Python.
+            """,
+        }  # State stores all information about the user or conversation across interactions
 
-# Create a NEW session
-APP_NAME = "Brandon Bot"
-USER_ID = "brandon_hancock"
-SESSION_ID = str(uuid.uuid4())
-stateful_session = session_service_stateful.create_session(
-    app_name=APP_NAME,
-    user_id=USER_ID,
-    session_id=SESSION_ID,
-    state=initial_state,
-)
-print("CREATED NEW SESSION:")
-print(f"\tSession ID: {SESSION_ID}")
+        # Store the new session in memory
+        await session_service_stateful.create_session(
+            app_name=APP_NAME,
+            user_id=USER_ID,
+            session_id=SESSION_ID,
+            state=state,
+        )
 
-runner = Runner(
-    agent=question_answering_agent,
-    app_name=APP_NAME,
-    session_service=session_service_stateful,
-)
+    # Initialize the Runner (agent executor) with the session service
+    runner = Runner(
+        agent=question_answer_agent,
+        app_name=APP_NAME,
+        session_service=session_service_stateful,
+    )
 
-new_message = types.Content(
-    role="user", parts=[types.Part(text="What is Brandon's favorite TV show?")]
-)
+    # Example user query
+    new_message = types.Content(
+        role="user",
+        parts=[types.Part(text="Can you tell me Aarav favorite movie ?")],
+    )
+    # Explanation of types:
+    # - types → library with message tools
+    # - Content → a complete message (role + message parts)
+    # - Part → a single piece of the message (usually text)
+    # You can have multiple Parts in a single Content object if needed
 
-for event in runner.run(
-    user_id=USER_ID,
-    session_id=SESSION_ID,
-    new_message=new_message,
-):
-    if event.is_final_response():
-        if event.content and event.content.parts:
-            print(f"Final Response: {event.content.parts[0].text}")
+    # Send the message to the agent and process its response asynchronously
+    async for event in runner.run_async(
+        user_id=USER_ID,
+        session_id=SESSION_ID,
+        new_message=new_message,
+    ):
+        # Only handle the final response from the agent
+        if event.is_final_response():
+            if event.content and event.content.parts:
+                # Print the text of the first part of the response
+                print(f"Final Response: {event.content.parts[0].text}")
+        #event → bot’s response event
+        #is_final_response() → checks if the bot finished replying
+        #event.content → structured message object (Content)
+        #event.content.parts → list of message parts, each with text
 
-print("==== Session Event Exploration ====")
-session = session_service_stateful.get_session(
-    app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
-)
+    # Retrieve the updated session state from memory
+    session = await session_service_stateful.get_session(
+        app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
+    )
 
-# Log final Session state
-print("=== Final Session State ===")
-for key, value in session.state.items():
-    print(f"{key}: {value}")
+    # Print the session state for inspection
+    print("=== Final Session State ===")
+    for key, value in session.state.items():
+        print(f"{key}: {value}")
+
+    # Save the updated session state to disk for future runs
+    save_session(APP_NAME, USER_ID, SESSION_ID, session.state)
+
+if __name__ == "__main__":
+    asyncio.run(main())
