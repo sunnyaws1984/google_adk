@@ -11,6 +11,4 @@ root_agent = Agent(
     - google_search
     """,
     tools=[google_search],
-    # tools=[get_current_time],
-    # tools=[google_search, get_current_time], # <--- Doesn't work
 )
