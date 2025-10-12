@@ -171,3 +171,16 @@ You can exit the conversation or stop the server by pressing `Ctrl+C` in your te
 
 - [ADK Multi-Agent Systems Documentation](https://google.github.io/adk-docs/agents/multi-agent-systems/)
 - [Agent Tools Documentation](https://google.github.io/adk-docs/tools/function-tools/#3-agent-as-a-tool)
+
+
+## Key Concept: “Sub-agents” vs “Tools”
+
+| Feature | **sub_agents** | **tools** |
+|----------|----------------|-----------|
+| **What they are** | Other **AI agents** | Simple **functions** or **APIs** |
+| **Can they reason?** | ✅ Yes (they have their own LLM, instructions, memory, etc.) | ❌ No (just code that runs) |
+| **Purpose** | Handle **complex tasks** that need independent reasoning or domain knowledge | Handle **atomic actions** like getting time, fetching data, or running an API |
+| **Example** | `stock_analyst` agent that analyzes stock trends | `get_current_time()` or `get_stock_price()` function |
+| **How manager uses them** | Delegates a **high-level task**: “Analyze Tesla stock for next week.” | Uses for **small utilities**: “What’s the current time?” or “Fetch today’s news.” |
+| **Returns** | A **full natural language or structured response** | A **raw value** or **dictionary result** |
+
