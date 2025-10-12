@@ -40,12 +40,11 @@ parent_folder/
 3. **Importing Sub-agents**
    - Root agent must import sub-agents to use them:
    ```python
-   from .sub_agents.funny_nerd.agent import funny_nerd
    from .sub_agents.stock_analyst.agent import stock_analyst
    ```
 
 4. **Command Location**
-   - Always run `adk web` from the parent directory (`6-multi-agent`), not from inside any agent directory
+   - Always run `adk web` from the parent directory (`multi-agents`), not from inside any agent directory
 
 This structure ensures that ADK can discover and correctly load all agents in the hierarchy.
 
@@ -63,7 +62,7 @@ root_agent = Agent(
     model="gemini-2.0-flash",
     description="Manager agent",
     instruction="You are a manager agent that delegates tasks to specialized agents...",
-    sub_agents=[stock_analyst, funny_nerd],
+    sub_agents=[stock_analyst],
 )
 ```
 
@@ -103,71 +102,17 @@ root_agent = Agent(
 
 **Built-in tools cannot be used within a sub-agent.**
 
-For example, this approach using built-in tools within sub-agents is **not** currently supported:
-
-```python
-search_agent = Agent(
-    model='gemini-2.0-flash',
-    name='SearchAgent',
-    instruction="You're a specialist in Google Search",
-    tools=[google_search],  # Built-in tool
-)
-coding_agent = Agent(
-    model='gemini-2.0-flash',
-    name='CodeAgent',
-    instruction="You're a specialist in Code Execution",
-    tools=[built_in_code_execution],  # Built-in tool
-)
-root_agent = Agent(
-    name="RootAgent",
-    model="gemini-2.0-flash",
-    description="Root Agent",
-    sub_agents=[
-        search_agent,  # NOT SUPPORTED
-        coding_agent   # NOT SUPPORTED
-    ],
-)
-```
-
-### Workaround Using Agent Tools
-
-To use multiple built-in tools or to combine built-in tools with other tools, you can use the `AgentTool` approach:
-
-```python
-from google.adk.tools import agent_tool
-
-search_agent = Agent(
-    model='gemini-2.0-flash',
-    name='SearchAgent',
-    instruction="You're a specialist in Google Search",
-    tools=[google_search],
-)
-coding_agent = Agent(
-    model='gemini-2.0-flash',
-    name='CodeAgent',
-    instruction="You're a specialist in Code Execution",
-    tools=[built_in_code_execution],
-)
-root_agent = Agent(
-    name="RootAgent",
-    model="gemini-2.0-flash",
-    description="Root Agent",
-    tools=[
-        agent_tool.AgentTool(agent=search_agent), 
-        agent_tool.AgentTool(agent=coding_agent)
-    ],
-)
-```
 
 This approach wraps agents as tools, allowing the root agent to delegate to specialized agents that each use a single built-in tool.
+Ticker is a parameter that represents a company’s stock symbol — the short code used to identify a company’s shares on a stock exchange
+Apple Inc NASDAQ -> AAPL
 
 ## Our Multi-Agent Example
 
 This example implements a manager agent that works with three specialized agents:
 
 1. **Stock Analyst** (Sub-agent): Provides financial information and stock market insights
-2. **Funny Nerd** (Sub-agent): Creates nerdy jokes about technical topics
-3. **News Analyst** (Agent Tool): Gives summaries of current technology news
+2. **News Analyst** (Agent Tool): Gives summaries of current technology news
 
 The manager agent routes queries to the appropriate specialist based on the content of the user's request.
 
@@ -186,7 +131,7 @@ source ../.venv/bin/activate
 ```
 
 2. Set up your API key:
-   - Rename `.env.example` to `.env` in the manager folder
+   - Set `.env` in the manager folder
    - Add your Google API key to the `GOOGLE_API_KEY` variable in the `.env` file
 
 ## Running the Example
@@ -216,7 +161,7 @@ If your multi-agent setup doesn't appear properly in the dropdown menu:
 ### Example Prompts to Try
 
 - "Can you tell me about the stock market today?"
-- "Tell me something funny about programming"
+- "can you please share me Tesla stock price ?"
 - "What's the latest tech news?"
 - "What time is it right now?"
 
