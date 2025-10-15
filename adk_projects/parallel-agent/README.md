@@ -49,12 +49,10 @@ The architecture combines both parallel and sequential workflow patterns:
 1. First, the `system_info_gatherer` Parallel Agent runs all three information agents concurrently
 2. Then, the `system_report_synthesizer` uses the collected data to generate a final report
 
-This hybrid approach demonstrates how to combine workflow agent types for optimal performance and logical flow.
-
 ## Project Structure
 
 ```
-10-parallel-agent/
+parallel-agent/
 │
 ├── system_monitor_agent/          # Main System Monitor Agent package
 │   ├── __init__.py                # Package initialization
@@ -108,8 +106,10 @@ GOOGLE_API_KEY=your_api_key_here
 ### Running the Example
 
 ```bash
-cd 10-parallel-agent
+pip install psutil
+cd parallel-agent
 adk web
+
 ```
 
 Then select "system_monitor_agent" from the dropdown menu in the web UI.
@@ -148,7 +148,3 @@ ADK offers different types of workflow agents for different needs:
 - **Loop Agents**: For repeated execution of sub-agents based on conditions
 - **Parallel Agents**: For concurrent execution of independent sub-agents (like this example)
 
-## Additional Resources
-
-- [ADK Parallel Agents Documentation](https://google.github.io/adk-docs/agents/workflow-agents/parallel-agents/)
-- [Full Example: Parallel Web Research](https://google.github.io/adk-docs/agents/workflow-agents/parallel-agents/#full-example-parallel-web-research) 
