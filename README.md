@@ -1,4 +1,4 @@
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the project
 ```bash
@@ -12,16 +12,10 @@ source .venv/Scripts/activate   # GIT BASH
 
 3. Install Google ADK :
 
-Install Python 3.13.5 as pre-requisite
+Install Python 3.13 as pre-requisite
 pip install google-adk
 or
 pip install -r requirements.txt
 uv pip install -r requirements.txt (Speed up the installations)
 
-4. Ask Queries like this to these Agents:
-
-Can you share me all the details about movie Inception ?
-I want to know revenue of movie Interstellar?
-How is the weather in New York ?
-How is the Temperature in New York ?
-What Happened to Asia Cup recently ?
+4. Ask Queries like this to these Agents as defined in README
