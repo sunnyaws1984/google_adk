@@ -25,8 +25,8 @@ def count_characters(text: str, tool_context: ToolContext) -> Dict[str, Any]:
             - message: feedback message about the length
     """
     char_count = len(text)
-    MIN_LENGTH = 1000
-    MAX_LENGTH = 1500
+    MIN_LENGTH = 500
+    MAX_LENGTH = 800
 
     print("\n----------- TOOL DEBUG -----------")
     print(f"Checking text length: {char_count} characters")

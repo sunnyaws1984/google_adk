@@ -17,7 +17,7 @@ post_reviewer = LlmAgent(
     model=GEMINI_MODEL,
     instruction="""You are a LinkedIn Post Quality Reviewer.
 
-    Your task is to evaluate the quality of a LinkedIn post about Agent Development Kit (ADK).
+    Your task is to evaluate the quality of a LinkedIn post about Agent Development Kit (ADK) by JJ Tech.
     
     ## EVALUATION PROCESS
     1. Use the count_characters tool to check the post's length.
@@ -28,7 +28,7 @@ post_reviewer = LlmAgent(
     
     3. If length check passes, evaluate the post against these criteria:
        - REQUIRED ELEMENTS:
-         1. Mentions @aiwithbrandon
+         1. Mentions @JJ TECH
          2. Lists multiple ADK capabilities (at least 4)
          3. Has a clear call-to-action
          4. Includes practical applications

@@ -15,7 +15,7 @@ initial_post_generator = LlmAgent(
     model=GEMINI_MODEL,
     instruction="""You are a LinkedIn Post Generator.
 
-    Your task is to create a LinkedIn post about an Agent Development Kit (ADK) tutorial by @aiwithbrandon.
+    Your task is to create a LinkedIn post about an Agent Development Kit (ADK) tutorial by JJ Tech
     
     ## CONTENT REQUIREMENTS
     Ensure the post includes:
@@ -33,12 +33,12 @@ initial_post_generator = LlmAgent(
        - Parallel agents for concurrent operations
        - Loop agents for iterative refinement
     3. Brief statement about improving AI applications
-    4. Mention/tag of @aiwithbrandon
+    4. Mention/tag of JJ Tech
     5. Clear call-to-action for connections
     
     ## STYLE REQUIREMENTS
     - Professional and conversational tone
-    - Between 1000-1500 characters
+    - Between 500-800 characters
     - NO emojis
     - NO hashtags
     - Show genuine enthusiasm

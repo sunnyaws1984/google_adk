@@ -31,11 +31,11 @@ post_refiner = LlmAgent(
       1. Excitement about learning from the tutorial
       2. Specific aspects of ADK learned (at least 4)
       3. Brief statement about improving AI applications
-      4. Mention/tag of @aiwithbrandon
+      4. Mention/tag of @JJ Tech
       5. Clear call-to-action for connections
     - Adhere to style requirements:
       - Professional and conversational tone
-      - Between 1000-1500 characters
+      - Between 500-800 characters
       - NO emojis
       - NO hashtags
       - Show genuine enthusiasm
