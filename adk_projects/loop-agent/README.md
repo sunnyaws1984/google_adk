@@ -74,7 +74,7 @@ adk web
 Then in the web interface, enter a prompt like:
 "Generate a LinkedIn post about what I've learned from JJ Tech Agent Development Kit tutorial."
 
-The system will:
+The system will do below changes:
 1. Generate an initial LinkedIn post
 2. Review the post for quality and compliance with requirements
 3. If the post meets all requirements, exit the loop
