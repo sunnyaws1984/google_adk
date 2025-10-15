@@ -71,9 +71,6 @@ cd loop-agent
 adk web
 ```
 
-Then in the web interface, enter a prompt like:
-"Generate a LinkedIn post about what I've learned from JJ Tech Agent Development Kit tutorial."
-
 The system will do below changes:
 1. Generate an initial LinkedIn post
 2. Review the post for quality and compliance with requirements
@@ -85,7 +82,7 @@ The system will do below changes:
 ## Example Input
 
 ```
-Generate a LinkedIn post about what I've learned Cloud and Devops from JJ Tech.
+Generate a LinkedIn post about what I've learned from JJ Tech Agent Development Kit tutorial.
 ```
 
 ## Loop Termination
