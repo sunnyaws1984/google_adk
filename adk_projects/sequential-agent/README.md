@@ -90,12 +90,6 @@ source ../.venv/bin/activate
 GOOGLE_API_KEY=your_api_key_here
 ```
 
-### Running the Example
-
-```bash
-cd 9-sequential-agent
-adk web
-```
 
 Then select "lead_qualification_agent" from the dropdown menu in the web UI.
 
@@ -134,7 +128,3 @@ ADK offers different types of workflow agents for different needs:
 - **Loop Agents**: For repeated execution of sub-agents based on conditions
 - **Parallel Agents**: For concurrent execution of independent sub-agents
 
-## Additional Resources
-
-- [ADK Sequential Agents Documentation](https://google.github.io/adk-docs/agents/workflow-agents/sequential-agents/)
-- [Full Code Development Pipeline Example](https://google.github.io/adk-docs/agents/workflow-agents/sequential-agents/#full-example-code-development-pipeline) 
