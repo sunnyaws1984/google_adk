@@ -4,7 +4,7 @@ from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPServerParams
 from .prompt import VALIDATOR_PROMPT
 
-MCP_URL = os.environ.get("MCP_URL", "http://localhost:8000/mcp")
+MCP_URL = os.environ.get("MCP_URL", "http://localhost:8000/mcp") #Make sure MCP is up and running
 
 root_agent = LlmAgent(
     name="grafana_agent",
