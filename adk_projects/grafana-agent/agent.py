@@ -6,7 +6,6 @@ from .prompt import VALIDATOR_PROMPT
 
 MCP_URL = os.environ.get("MCP_URL", "http://localhost:8000/mcp")
 
-# 2) Create the agent with an MCPToolset over HTTP transport
 root_agent = LlmAgent(
     name="grafana_agent",
     model="gemini-2.0-flash",
