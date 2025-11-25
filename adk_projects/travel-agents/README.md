@@ -13,17 +13,17 @@ This project demonstrates how to create basic AI agent using Google's Agent Deve
 
 Before you begin, make sure you have:
 
-1. **Python 3.8+** installed on your system
+1. **Python 3.10+** installed on your system
 2. **Google AI Studio API Key** - Get one from [Google AI Studio](https://aistudio.google.com/apikey)
-3. **Basic knowledge** of Python and command line operations
+
 
 ## Installation
 
 ### Step 1: Clone or Download the Project
 
 ```bash
-git clone https://github.com/dev-muhammad/flight_search_agent_adk.git
-cd flight_search_agent_adk
+git clone <REPO>
+cd travel-agent
 ```
 
 ### Step 2: Create a Virtual Environment (Recommended)
