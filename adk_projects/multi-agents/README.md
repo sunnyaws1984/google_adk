@@ -10,43 +10,6 @@ A Multi-Agent System is an advanced pattern in the Agent Development Kit (ADK) t
 
 For multi-agent systems to work properly with ADK, your project must follow a specific structure:
 
-```
-parent_folder/
-├── root_agent_folder/           # Main agent package (e.g., "manager")
-│   ├── __init__.py              # Must import agent.py
-│   ├── agent.py                 # Must define root_agent
-│   ├── .env                     # Environment variables
-│   └── sub_agents/              # Directory for all sub-agents
-│       ├── __init__.py          # Empty or imports sub-agents
-│       ├── agent_1_folder/      # Sub-agent package
-│       │   ├── __init__.py      # Must import agent.py
-│       │   └── agent.py         # Must define an agent variable
-│       ├── agent_2_folder/
-│       │   ├── __init__.py
-│       │   └── agent.py
-│       └── ...
-```
-
-### Essential Structure Components:
-
-1. **Root Agent Package**
-   - Must have the standard agent structure (like in the basic agent example)
-   - The `agent.py` file must define a `root_agent` variable
-
-2. **Sub-agents Directory**
-   - Typically organized as a directory called `sub_agents` inside the root agent folder
-   - Each sub-agent should be in its own directory following the same structure as regular agents
-
-3. **Importing Sub-agents**
-   - Root agent must import sub-agents to use them:
-   ```python
-   from .sub_agents.stock_analyst.agent import stock_analyst
-   ```
-
-4. **Command Location**
-   - Always run `adk web` from the parent directory (`multi-agents`), not from inside any agent directory
-
-This structure ensures that ADK can discover and correctly load all agents in the hierarchy.
 
 ## Multi-Agent Architecture Options
 
@@ -160,12 +123,12 @@ If your multi-agent setup doesn't appear properly in the dropdown menu:
 
 ### Example Prompts to Try
 
-- "Can you tell me about the stock market today?"
-- "can you please share me Tesla stock price ?"
-- "What's the latest tech news?"
-- "What time is it right now?"
 
-You can exit the conversation or stop the server by pressing `Ctrl+C` in your terminal.
+- What's the latest tech news? 
+- What time is it right now?
+- Can you tell me about the stock market today?
+- can you please share me Tesla stock price ?
+
 
 ## Additional Resources
 
