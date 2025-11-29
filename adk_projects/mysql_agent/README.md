@@ -6,7 +6,7 @@ pip install sqlalchemy pymysql
 Docker Commands:
 
 docker compose down -v
-docker compose up
+docker compose up -d
 
 ```bash
 
@@ -39,3 +39,14 @@ Sample Query:
 what is the salary of Alice ?
 Alice is from which department ?
 What is the Salary of Evan and he is from which department 
+
+
+```
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- unique ID generated automatically
+    name VARCHAR(50),                  -- employee name text up to 50 chars
+    department VARCHAR(50),            -- department name
+    salary INT                          -- employee salary as a number
+);
+
+```
