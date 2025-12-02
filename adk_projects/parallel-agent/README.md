@@ -119,11 +119,11 @@ Then select "system_monitor_agent" from the dropdown menu in the web UI.
 Try these example prompts:
 
 ```
-Check my system health
+Check my system health ?
 ```
 
 ```
-Provide a comprehensive system report with recommendations
+Provide a comprehensive system report with recommendations ?
 ```
 
 ```
