@@ -17,7 +17,7 @@ Unlike simple conversational agents that forget previous interactions, stateful 
 This directory contains a basic stateful session example that demonstrates:
 
 - Creating a session with user preferences
-- Using template variables to access session state in agent instructions
+- Using variables to access session state in agent instructions
 - Running the agent with a session to maintain context
 
 The example uses a simple question-answering agent that responds based on stored user information in the session state.

@@ -45,17 +45,17 @@ async def main():
                 My favorite movie is 3 Idiots.
                 I enjoy exploring hill stations like Manali and Munnar.
                 I like chai more than coffee and enjoy reading about Indian history.
-                I love doing coding in Python.
+                I love doing coding in Java.
             """,
         }  # State stores all information about the user or conversation across interactions
 
         # Store the new session in memory
         await session_service_stateful.create_session(
-            app_name=APP_NAME,
-            user_id=USER_ID,
-            session_id=SESSION_ID,
-            state=state,
-        )
+             app_name=APP_NAME,
+             user_id=USER_ID,
+             session_id=SESSION_ID,
+             state=state,
+         )
 
     # Initialize the Runner (agent executor) with the session service
     runner = Runner(
@@ -67,21 +67,24 @@ async def main():
     # Example user query
     new_message = types.Content(
         role="user",
-        parts=[types.Part(text="Can you tell me Aarav favorite movie ?")],
+        parts=[types.Part(text="Can you tell me Aarav favorite coding langauge ?")],
     )
+
     # Explanation of types:
     # - types → library with message tools
     # - Content → a complete message (role + message parts)
     # - Part → a single piece of the message (usually text)
-    # You can have multiple Parts in a single Content object if needed
 
-    # Send the message to the agent and process its response asynchronously
+
+    #This starts the agent and tells who the user is (USER_ID) & which session/chat it belongs to i.e SESSION_ID
+
     async for event in runner.run_async(
         user_id=USER_ID,
         session_id=SESSION_ID,
         new_message=new_message,
     ):
         # Only handle the final response from the agent
+        #print ("event",event)
         if event.is_final_response():
             if event.content and event.content.parts:
                 # Print the text of the first part of the response
@@ -95,11 +98,6 @@ async def main():
     session = await session_service_stateful.get_session(
         app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
     )
-
-    # Print the session state for inspection
-    print("=== Final Session State ===")
-    for key, value in session.state.items():
-        print(f"{key}: {value}")
 
     # Save the updated session state to disk for future runs
     save_session(APP_NAME, USER_ID, SESSION_ID, session.state)
