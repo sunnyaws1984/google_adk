@@ -1,6 +1,7 @@
 # Callbacks in ADK
 
-This example demonstrates how to use callbacks in the Agent Development Kit (ADK) to intercept and modify agent behavior at different stages of execution. Callbacks provide powerful hooks into the agent's lifecycle, allowing you to add custom logic for monitoring, logging, content filtering, and result transformation.
+This example demonstrates how to use callbacks in the Agent Development Kit (ADK) to intercept and modify agent behavior at different stages of execution. 
+Callbacks provide powerful hooks into the agent's lifecycle, allowing you to add custom logic for monitoring, logging, content filtering, and result transformation.
 
 ## What are Callbacks in ADK?
 
