@@ -14,24 +14,3 @@ Callbacks are functions that execute at specific points in an agent's execution 
 
 ADK provides several types of callbacks that can be attached to different components of your agent system.
 
-## Callback Parameters and Context
-
-Each type of callback provides access to specific context objects that contain valuable information about the current execution state. Understanding these parameters is key to building effective callbacks.
-
-### CallbackContext
-
-The `CallbackContext` object is provided to all callback types and contains:
-
-- **`agent_name`**: The name of the agent being executed
-- **`invocation_id`**: A unique identifier for the current agent invocation
-- **`state`**: Access to the session state, allowing you to read/write persistent data
-- **`app_name`**: The name of the application
-- **`user_id`**: The ID of the current user
-- **`session_id`**: The ID of the current session
-
-
-## Additional Resources
-
-- [ADK Callbacks Documentation](https://google.github.io/adk-docs/callbacks/)
-- [Types of Callbacks](https://google.github.io/adk-docs/callbacks/types-of-callbacks/)
-- [Design Patterns and Best Practices](https://google.github.io/adk-docs/callbacks/design-patterns-and-best-practices/)
