@@ -8,7 +8,7 @@ def after(callback_context):
 
 root_agent = LlmAgent(
     name="logger_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Agent with minimal logging callbacks",
     instruction="You are a friendly greeting agent.",
     before_agent_callback=before,

@@ -8,7 +8,7 @@ based on the lead validation and scoring results.
 from google.adk.agents import LlmAgent
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # Create the recommender agent
 action_recommender_agent = LlmAgent(

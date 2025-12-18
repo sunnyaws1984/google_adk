@@ -14,7 +14,7 @@ class EmailContent(BaseModel):
 # --- Create Customer Support Email Agent ---
 root_agent = LlmAgent(
     name="support_email_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction="""
 You are a Customer Support Email Assistant.
 Your goal is to write professional, empathetic, and helpful emails in JSON format.

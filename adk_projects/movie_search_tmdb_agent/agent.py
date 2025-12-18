@@ -6,7 +6,7 @@ from .tools import get_movie_details
 
 root_agent = Agent(
     name="tool_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Tool agent",
     instruction="""
     You are a helpful assistant that can use the get_movie_details tool.

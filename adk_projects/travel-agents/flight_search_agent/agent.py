@@ -3,7 +3,7 @@ from google.adk.tools import google_search
 
 root_agent = Agent(
     name="flight_search_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Flight search agent for finding direct flights between cities",
     instruction="""
     You are a helpful flight search assistant that helps users find direct flights between two cities.

@@ -3,7 +3,7 @@ from .sql_tools import run_sql  # import our function
 
 root_agent = Agent(
     name="db_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Agent that queries a MySQL database.",
     instruction="""
     You MUST use the run_sql tool to answer ALL user questions about the database.

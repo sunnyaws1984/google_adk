@@ -8,7 +8,7 @@ to create a comprehensive system health report.
 from google.adk.agents import LlmAgent
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # System Report Synthesizer Agent
 system_report_synthesizer = LlmAgent(

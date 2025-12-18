@@ -9,7 +9,7 @@ from google.adk.agents import LlmAgent
 from .tools import get_disk_info
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # Disk Information Agent
 disk_info_agent = LlmAgent(

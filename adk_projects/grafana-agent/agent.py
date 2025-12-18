@@ -8,7 +8,7 @@ MCP_URL = os.environ.get("MCP_URL", "http://localhost:8000/mcp") #Make sure MCP 
 
 root_agent = LlmAgent(
     name="grafana_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Execute Grafana MCP tools and intelligently refine the raw output for clarity and usefulness.",
     tools=[
         MCPToolset(
