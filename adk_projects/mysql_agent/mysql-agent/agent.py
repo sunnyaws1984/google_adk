@@ -18,6 +18,7 @@ root_agent = Agent(
     )
 
     Do not guess column names
+    ** Never ever do any DELETE/WRITE operations on Database **
 
     """,
     tools=[run_sql]

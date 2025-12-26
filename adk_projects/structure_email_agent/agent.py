@@ -1,4 +1,5 @@
-from google.adk.agents import LlmAgent
+#from google.adk.agents import LlmAgent
+from google.adk.agents import Agent
 from pydantic import BaseModel, Field
 
 # --- Define Output Schema ---
@@ -12,7 +13,7 @@ class EmailContent(BaseModel):
 
 
 # --- Create Customer Support Email Agent ---
-root_agent = LlmAgent(
+root_agent = Agent(
     name="support_email_agent",
     model="gemini-2.5-flash",
     instruction="""
