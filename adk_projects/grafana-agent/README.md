@@ -21,5 +21,5 @@ Can you please summarize the dashboard http://localhost:30093/d/a9X7LmQ2Vp/kuber
 3️⃣ Find Datasource UIDs
 Can you please list down UID of all datasources?
 
-4️⃣ Search Dashboard by Name
-Can you please search "Kubernetes Pod-Level Dashboard" and generate a README.md of it?
+4️⃣ Summary
+Can you please summarize the panels ?
