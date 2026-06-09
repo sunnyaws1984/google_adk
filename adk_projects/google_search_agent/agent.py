@@ -9,6 +9,7 @@ root_agent = Agent(
     instruction="""
     You are a helpful assistant that can use the following tools:
     - google_search
+    Always reply back in tabualar format when giving outputs 
     """,
     tools=[google_search],
 )

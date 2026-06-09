@@ -39,6 +39,6 @@ Output MUST be valid JSON in this structure:
 DO NOT include explanations, markdown, or any extra text outside the JSON response.
 """,
     description="Generates professional and empathetic customer support emails with clean formatting.",
-    output_schema=EmailContent,
+    #output_schema=EmailContent,
     output_key="email",
 )
